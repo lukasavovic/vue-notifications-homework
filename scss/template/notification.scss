@@ -1,0 +1,46 @@
+#app {
+    .header {
+        background-color: rgb(238, 238, 238);
+        padding: 20px 10px;
+        color: rgb(61, 0, 36);
+        h1 {
+            font-size: 30px;
+            padding-left: 20px;
+        }
+    }
+    .notifications {
+        li {
+            // padding: 20px 10px;
+            margin: 20px auto;
+            width: 50%;
+            background-color: gainsboro;
+            align-items: center;
+            display: grid;
+            box-shadow: 2px 3px rgba(99, 99, 99, 0.616);
+            grid-template-columns: 2fr 7fr 1fr;
+            .img {
+                height: 100%;
+                padding: 20px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 30%;
+                }
+            }
+            p {
+                padding: 10px 25px;
+            }
+            a {
+                display: block;
+                text-align: center;
+                &:hover {
+                    color: rgb(212, 33, 132);
+                    text-decoration: none;
+                    transform: scale(1.2);
+                    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+                }
+            }
+        }
+    }
+}

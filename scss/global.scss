@@ -1,0 +1,29 @@
+// Load Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+
+
+// Global Variables
+$background-body: #fafafa;
+$gray: #c9c9c9;
+$light-gray: #ebebeb;
+
+body {
+	font-family: 'Nunito', sans-serif;
+}
+.seen {
+	opacity: 0.5;
+}
+
+.error {
+	background-color: #fc2368;
+}
+.facebook {
+	background-color: #3B5998;
+}
+.instagram {
+	background-color: #cc0084;
+}
+.health {
+	background-color: #2fbf68;
+}
