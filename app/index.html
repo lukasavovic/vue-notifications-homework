@@ -14,11 +14,12 @@
 		</div>
 		<div class="notifications">
 			<ul>
-				<li v-for="(notification, index) in notifications" :class="{seen:notification.seen}">
+				<li v-for="(notification, index) in sortNotification(notifications)" :class="{seen:notification.seen}">
 					<div class="img" :class="notification.type">
 						<img :src="iconType(index)" alt="">
 					</div>
 					<p>{{notification.description}}</p>
+					<p class="time">{{timeConverter(index)}}</p>
 					<a href="#" @click="markAsSeen(index)">X</a>
 				</li>
 			</ul>

@@ -1,33 +1,54 @@
 var app = new Vue({
     el: '#app',
     data: {
-        notifications: []
+        notifications: [],
+        order: 1
+    },
+    computed: {
+        
     },
     mounted () {
         axios
-          .get('https://api.myjson.com/bins/lp0qu')
-          .then(response => (this.notifications = response.data))
+        .get('https://api.myjson.com/bins/15c1r6')
+        .then(response => (this.notifications = response.data))
     },
     methods: {
         markAsSeen: (index)=>{
-            app.notifications[index].seen = true;
+            app.sortNotification(app.notifications)[index].seen = true;
         },
         iconType: function (index){
             switch(this.notifications[index].type){
                 case 'error':
-                    return 'img/warning.png';
-                    break;
+                return 'img/warning.png';
+                break;
                 case 'facebook':
-                    return 'img/facebook.png';
-                    break;
+                return 'img/facebook.png';
+                break;
                 case 'instagram':
-                    return 'img/instagram.png';
-                    break;
+                return 'img/instagram.png';
+                break;
                 case 'health':
-                    return 'img/health.png';
-                    break;    
+                return 'img/health.png';
+                break;    
             }
+        },
+        timeConverter: (index)=> {
+            var date = new Date(app.sortNotification(app.notifications)[index].timestamp*1000);
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var year = date.getFullYear();
+            var month = months[date.getMonth()];
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var time = month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+
+            return time;
+        },
+        sortNotification: function(notifications) {
+            
+            return notifications.slice().sort(function(a, b) {
+                return a.timestamp - b.timestamp;
+            });
         }
     }
 });
-
